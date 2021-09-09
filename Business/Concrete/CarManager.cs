@@ -18,31 +18,34 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            Console.WriteLine("Araba ekleme işlemi başarılı.");
-            _carDal.Add(car);
+            if (car.Description.Length >= 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+            }
         }
 
         public void Delete(Car car)
         {
-            Console.WriteLine("Araba silme işlemi başarılı.");
             _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
         {
-            Console.WriteLine("Araba listeleme işlemi başarılı.");
-            return _carDal.getAll();
+            return _carDal.GetAll();
         }
 
-        public Car GetById(int id)
+        public List<Car> GetCarsByBrandId(int id)
         {
-            Console.WriteLine("Aranan id'ye göre araba getirildi.");
-            return _carDal.GetById(id);
+            return _carDal.GetAll(c => c.BrandId == id);
+        }
+
+        public List<Car> GetCarsByColorId(int id)
+        {
+            return _carDal.GetAll(c => c.ColorId == id);
         }
 
         public void Update(Car car)
         {
-            Console.WriteLine("Araba güncelleme işlemi başarılı.");
             _carDal.Update(car);
         }
     }
