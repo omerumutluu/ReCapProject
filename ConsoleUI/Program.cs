@@ -39,13 +39,19 @@ namespace ConsoleUI
             //}
 
             CarManager carManager = new CarManager(new EfCarDal());
-            //carManager.Add(new Car { Id = 4, BrandId = 8, ColorId = 3, DailyPrice = 800, ModelYear = 2004, Description = "Fiat Grande Punto 1.2 TSİ Otomatik Turbo" });
+            //carManager.Add(new Car { Id = 4, BrandId = 38, ColorId = 3, DailyPrice = 800, ModelYear = 2004, Description = "Fiat Grande Punto 1.2 TSİ Otomatik Turbo" });
 
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             //brandManager.Add(new Brand { Id = 15, Name = "Volvo" });
 
             ColorManager colorManager = new ColorManager(new EfColorDal());
             //colorManager.Add(new Color { Id = 6, Name = "Sarı" });
+
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            //customerManager.Add(new Customer { UserId = 5, CompanyName = "Umutlu Holding 2" });
+
+            UserManager userManager = new UserManager(new EfUserDal());
+            //userManager.Add(new User { Id = 1, FirstName = "Ömer", LastName = "Umutlu", Email = "omer.umutluu@icloud.com", Password = "test" });
 
         }
     }
