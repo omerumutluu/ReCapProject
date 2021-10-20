@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -22,6 +23,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("admin,cars.add")]
         public IResult Add(Car car)
         {
             if (car.Description.Length >= 2 && car.DailyPrice > 0)
@@ -41,6 +43,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
+        [SecuredOperation("admin,cars.getAll")]
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);

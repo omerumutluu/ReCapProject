@@ -74,7 +74,7 @@ namespace Core.Utilities.Helper
             {
                 return new SuccessResult();
             }
-            return new ErrorResult("File doesn't exists.");
+            return new ErrorResult("Dosya mevcut değil.");
         }
 
 
@@ -82,7 +82,7 @@ namespace Core.Utilities.Helper
         {
             if (type != ".jpeg" && type != ".png" && type != ".jpg")
             {
-                return new ErrorResult("Wrong file type.");
+                return new ErrorResult("Yanlış dosya tipi.");
             }
             return new SuccessResult();
         }
